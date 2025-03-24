@@ -130,15 +130,43 @@
                 contentType: "application/json",
                 data: JSON.stringify({ sequences, names }),
                 success: function(response) {
-                    let resultText = "";
-                    response.forEach(res => {
-                        resultText += `Transformation from ${res.from} to ${res.to}:\n`;
-                        res.steps.forEach((step, index) => {
-                            resultText += `  Step ${index + 1}: ${step.join(" ")}\n`;
-                        });
-                        resultText += `  Minimum inversions required: ${res.min_inversions}\n\n`;
-                    });
-                    $('#results').text(resultText);
+    let resultHTML = "";
+
+    response.forEach(res => {
+        resultHTML += `<div><strong>Transformation from ${res.from} to ${res.to}:</strong><br>`;
+
+        res.steps.forEach((step, index) => {
+            const prev = index > 0 ? res.steps[index - 1] : sequences[response.indexOf(res)];
+            const current = step;
+
+            // Найдём инвертированный диапазон
+            let start = 0, end = current.length - 1;
+            while (start < current.length && current[start] === prev[start]) start++;
+            while (end >= 0 && current[end] === prev[end]) end--;
+
+            resultHTML += `<div>Step ${index + 1}: `;
+
+            current.forEach((num, idx) => {
+                if (idx >= start && idx <= end) {
+                    resultHTML += `<span style="color: red; font-weight: bold;">${num}</span> `;
+                } else {
+                    resultHTML += `${num} `;
+                }
+            });
+
+            resultHTML += `</div>`;
+
+            if (index < res.steps.length - 1) {
+                resultHTML += `<div style="text-align: center; font-size: 18px; margin: 5px 0;">⇩</div>`;
+            }
+        });
+
+        resultHTML += `<div style="margin-bottom: 20px;"><em>Minimum inversions required: ${res.min_inversions}</em></div>`;
+        resultHTML += `</div><hr>`;
+    });
+
+    $('#results').html(resultHTML);
+
                 }
             });
         });
