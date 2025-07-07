@@ -75,3 +75,14 @@ If you use this tool in your research or publication — a citation or mention w
 Found a bug? Want to suggest a feature?  
 Reach out on Telegram: [@janesable](https://t.me/janesable)  
 Or be a grown-up and email me: **jane.sable.me@gmail.com**
+_______________________________________________________________
+## License
+
+This project, *Genome Inversions Calculator (GIC)*, is licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0).  
+Rightsholder: Tomsk State University  
+Original author: Evgeniya Soboleva
+
+See the [LICENSE](./LICENSE) and [NOTICE](./NOTICE) files for more details.
+
+Please cite the project if used in academic or research contexts.
+
