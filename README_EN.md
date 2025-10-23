@@ -1,8 +1,6 @@
 # Genome Inversions Calculator 🧬
 
-This is a Python/Flask web application for calculating the **minimum number of inversions** between rearranged chromosomes of different species.  
-Inspired by the previously available GRIMM tool  
-(*Tesler, G. GRIMM: Genome Rearrangements Web Server. Bioinformatics, 2002, 18, 492–493*).
+Genome Inversions Calculator is a Python/Flask web application designed to estimate the minimum number of inversions required to transform one permutation of syntenic blocks into another within a single chromosome. It is inspired by the previously available GRIMM (TEsler, G. GRIMM: Genome Rearrangements Web Server. Bioinformatics 2002, 18, 492–493). Unlike the original GRIMM tool (Tesler, 2002), which implements the full Hunnichall–Pevzner algorithm and supports various types of rearrangements (inversions, translocations, fusions, splits), GIC is limited to analysing intrachromosomal inversions. The programme is based on a set of greedy algorithms, which simplifies calculations and provides an intuitive interface. This makes the tool convenient for researchers who do not have training in bioinformatics but work with the results of physical mapping, sequencing, or cytogenetic studies. The programme does not require the installation of additional software, other than that in which the code is implemented, does not use complex graph models, and produces a clear visual result reflecting the sequence of chromosome order transformations. As a result, GIC can be used to demonstrate the logic of chromosomal rearrangements, analyse the evolution of individual chromosomes, and conduct comparative studies of closely related species.
 
 ---
 
